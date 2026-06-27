@@ -35,7 +35,7 @@ const loadingMessages = [
     "🔮 Understanding Your Ambition...",
     "🗺️ Mapping Your Journey...",
     "⚡ Discovering Key Focus Areas...",
-    "🏆 Preparing Your First Mission...",
+    "🏆 Preparing Your Mission...",
   ];
 
 export default function MissionBuilderPage() {
