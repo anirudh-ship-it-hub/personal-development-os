@@ -57,8 +57,8 @@ const [todayQuests, setTodayQuests] = useState(0);
       console.error(projectsError);
     }
     setJourneys(projects || []);
-    const [journeys, setJourneys] =
-  useState<any[]>([]);
+
+    // xp logs...
 
       // Single xp_logs fetch — derive everything from it
       const { data: xpLogs, error: xpError } = await supabase

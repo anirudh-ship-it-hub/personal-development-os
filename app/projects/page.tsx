@@ -412,7 +412,7 @@ export default function ProjectsPage() {
   
   <div className="flex flex-wrap gap-3">
 
-    {selectedProject.focusAreas.map((area) => (
+    {selectedProject.focusAreas.map((area: any) => (
 
       
       <button
@@ -486,7 +486,7 @@ export default function ProjectsPage() {
 
   <div className="space-y-2">
 
-    {selectedFocusArea.habits.map((habit) => (
+    {selectedFocusArea.habits.map((habit:any) => (
 
       <div
         key={habit.name}

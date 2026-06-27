@@ -367,7 +367,7 @@ if (error) {
                   <div className="mt-3 inline-flex rounded-full bg-blue-950 px-3 py-1 text-xs font-medium text-blue-300">
                   {mission.missionCategory
                   .replace("_", " ")
-                   .replace(/\b\w/g, (c) => c.toUpperCase())}
+                   .replace(/\b\w/g, (c: string) => c.toUpperCase())}
 </div>
                 </div>
 
