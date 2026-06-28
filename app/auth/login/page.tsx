@@ -26,7 +26,7 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-blue-500/20">
+    <main className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-blue-500/20">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
           
@@ -38,13 +38,13 @@ export default function LoginPage() {
                 <p className="text-sm font-medium uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
                   CURRENT RANK: EXPLORER
                 </p>
-                <h1 className="mt-2 text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                <h1 className="mt-2 text-4xl font-bold tracking-tight text-white">
                   Welcome Back Explorer
                 </h1>
               </div>
 
               {/* Clean, Non-Squished XP HUD Metric Block */}
-              <div className="mt-8 max-w-xl bg-neutral-50 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 shadow-sm">
+              <div className="mt-8 max-w-xl bg-neutral-950 rounded-2xl border border-neutral-800 p-5 shadow-sm">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-sm font-bold text-neutral-600 dark:text-neutral-300 mb-3">
                   <span>Rank Progress to Pathfinder</span>
                   <span className="text-blue-500 font-mono bg-blue-50 dark:bg-blue-950/40 px-3 py-1 rounded-lg border border-blue-100 dark:border-blue-900/30 text-xs">
@@ -56,7 +56,7 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <hr className="my-10 border-neutral-200 dark:border-neutral-800" />
+              <hr className="my-10 border-neutral-800" />
 
               {/* Spaced Form Fields using Classic RPG Wording */}
               <div className="space-y-6 max-w-xl">
@@ -69,7 +69,7 @@ export default function LoginPage() {
                     placeholder="explorer@domain.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-xl border p-4 bg-neutral-50 dark:bg-neutral-950 text-base border-neutral-200 dark:border-neutral-800 outline-none text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
+                    className="w-full rounded-xl border p-4 bg-neutral-950 text-base border-neutral-800 outline-none text-white placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
                   />
                 </div>
                 <div>
@@ -81,13 +81,13 @@ export default function LoginPage() {
                     placeholder="••••••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full rounded-xl border p-4 bg-neutral-50 dark:bg-neutral-950 text-base border-neutral-200 dark:border-neutral-800 outline-none text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
+                    className="w-full rounded-xl border p-4 bg-neutral-950 text-base border-neutral-800 outline-none text-white placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
                   />
                 </div>
               </div>
 
               {error && (
-                <p className="mt-6 max-w-xl text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/30 p-3 rounded-xl">
+                <p className="mt-6 max-w-xl text-sm font-medium text-white bg-red-500/10 border border-red-500/40 p-3 rounded-xl">
                   ⚠️ {error}
                 </p>
               )}
@@ -112,28 +112,28 @@ export default function LoginPage() {
           </div>
 
           {/* RIGHT COLUMN: Sidebar HUD Modules */}
-          <div>
+          <div className="hidden lg:block">
             <div className="sticky top-8 space-y-6">
               
               {/* Mission Summary Replication widget */}
-              <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-                <h3 className="font-bold flex items-center gap-2 mb-4 text-neutral-900 dark:text-white">
+              <div className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
+                <h3 className="font-bold flex items-center gap-2 mb-4 text-white">
                   📋 <span>Mission Summary</span>
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 p-4 text-center">
-                    <p className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">1</p>
+                  <div className="rounded-xl border border-neutral-800 bg-neutral-950 p-4 text-center">
+                    <p className="text-3xl font-bold tracking-tight text-white">1</p>
                     <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Active Mission</p>
                   </div>
-                  <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 p-4 text-center">
+                  <div className="rounded-xl border border-neutral-800 bg-neutral-950 p-4 text-center">
                     <p className="text-3xl font-bold tracking-tight text-orange-500">0</p>
                     <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Day Streak</p>
                   </div>
                 </div>
               </div>
 
-              <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-                <h3 className="font-bold mb-3 text-neutral-900 dark:text-white">🏆 XP Rewards</h3>
+              <div className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
+                <h3 className="font-bold mb-3 text-white">🏆 XP Rewards</h3>
                 <div className="space-y-2 text-sm text-neutral-500 dark:text-neutral-400">
                   <p>+10 XP Habit Complete</p>
                   <p>+100 XP Checkpoint Complete</p>
@@ -141,8 +141,8 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-                <h3 className="font-bold mb-3 text-neutral-900 dark:text-white">🎖 Journey Ranks</h3>
+              <div className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
+                <h3 className="font-bold mb-3 text-white">🎖 Journey Ranks</h3>
                 <div className="space-y-2 text-sm font-medium text-neutral-400">
                   <p className="text-blue-500 font-bold">Level 1 → Explorer</p>
                   <p className="dark:text-neutral-300">Level 5 → Pathfinder</p>

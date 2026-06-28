@@ -353,7 +353,7 @@ if (error) {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-screen bg-neutral-950">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
           <div>
@@ -378,7 +378,7 @@ if (error) {
                   />
                 </div>
 
-                <div className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 dark:bg-blue-950 dark:text-blue-300">
+                <div className="rounded-full bg-blue-950 px-4 py-2 text-sm font-medium text-blue-300">
                   {mission.missionType === "quantifiable"
                     ? "🎯 Quantifiable Mission"
                     : "🌱 Transformational Mission"}
@@ -392,9 +392,9 @@ if (error) {
                 className="mt-6 w-full resize-none bg-transparent text-neutral-600 outline-none dark:text-neutral-400"
               />
 
-<div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-900 dark:bg-emerald-950/20">
+<div className="mt-6 rounded-2xl border border-emerald-900 bg-emerald-950/20 p-5">
 
-  <p className="font-semibold text-emerald-700 dark:text-emerald-400">
+  <p className="font-semibold text-emerald-400">
     🏆 Mission Activated Reward
   </p>
 
@@ -414,7 +414,7 @@ if (error) {
             </div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
                 <h3 className="text-xl font-semibold">📍 Current Reality</h3>
                 <p className="mt-1 text-sm text-neutral-500">
   Be honest about where you are today
@@ -438,13 +438,13 @@ if (error) {
     transition
     focus:border-blue-500
     dark:border-neutral-700
-    dark:bg-neutral-950
+    bg-neutral-950
     dark:text-white
   "
 />
               </div>
 
-              <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
                 <h3 className="text-xl font-semibold">🏁 Future Identity</h3>
                 <p className="mt-1 text-sm text-neutral-500">
   Describe who you're becoming
@@ -468,7 +468,7 @@ if (error) {
     transition
     focus:border-blue-500
     dark:border-neutral-700
-    dark:bg-neutral-950
+    bg-neutral-950
     dark:text-white
   "
 />
@@ -476,16 +476,16 @@ if (error) {
             </div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
                 <h3 className="font-semibold">🎯 Target Milestone</h3>
                 <input type="date" value={targetDate} onChange={(e)=>setTargetDate(e.target.value)}
-                  className="mt-4 rounded-xl border p-3 dark:bg-neutral-950" />
+                  className="mt-4 rounded-xl border p-3 bg-neutral-950" />
               </div>
 
-              <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
                 <h3 className="font-semibold">🧭 Checkpoint Schedule</h3>
                 <select value={checkpointSchedule} onChange={(e)=>setCheckpointSchedule(e.target.value)}
-                  className="mt-4 rounded-xl border p-3 dark:bg-neutral-950">
+                  className="mt-4 rounded-xl border p-3 bg-neutral-950">
                   <option value="weekly">Weekly</option>
                   <option value="biweekly">Biweekly</option>
                   <option value="monthly">Monthly</option>
@@ -499,7 +499,7 @@ if (error) {
                 {mission.focusAreas?.map((area:any)=>(
                   <div
                   key={area.name}
-                  className="min-h-[140px] rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
+                  className="min-h-[140px] rounded-2xl border border-neutral-800 bg-neutral-900 p-6"
                 >
                     <h3 className="font-semibold text-lg">
   {(focusAreaIcons[area.name] || "🎯") + " " + area.name}
@@ -535,7 +535,7 @@ if (error) {
               <h2 className="text-2xl font-bold">⚡ Execution Plan</h2>
               <div className="mt-6 space-y-6">
                 {Object.entries(habitsByFocusArea).map(([focusArea, habits]: any) => (
-                  <div key={focusArea} className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+                  <div key={focusArea} className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
                     <h3 className="mb-4 text-xl font-semibold">
                       {(focusAreaIcons[focusArea] || "🎯") + " " + focusArea}
                     </h3>
@@ -563,7 +563,7 @@ if (error) {
                         
                           <div className="flex items-center gap-3">
 
-<div className="h-5 w-5 rounded border border-neutral-300" />
+<div className="h-5 w-5 rounded border border-neutral-600" />
 
 <div>
 
@@ -615,7 +615,7 @@ if (error) {
               </div>
             </div>
 
-            <div className="mt-10 rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="mt-10 rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
               <h3 className="font-semibold">
                 📋 Mission Summary
               </h3>
@@ -651,14 +651,14 @@ if (error) {
             <button
   onClick={handleStartMission}
   disabled={saving}
-  className="rounded-xl bg-blue-600 px-8 py-4 font-medium text-white disabled:opacity-50"
+  className="btn-touch rounded-xl bg-blue-600 px-8 py-4 font-medium text-white disabled:opacity-50"
 >
   {saving
     ? "⏳ Activating Mission..."
     : "🚀 Start Mission"}
 </button>
 
-              <button className="rounded-xl border px-8 py-4 font-medium">
+              <button className="btn-touch rounded-xl border px-8 py-4 font-medium">
                 🔄 Regenerate Plan
               </button>
             </div>
@@ -834,7 +834,7 @@ Your feedback helps shape future unlocks.
 </div>
 
 
-              <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
                 <h3 className="font-bold">🏆 XP Rewards</h3>
                 <div className="mt-4 space-y-3 text-sm">
                   <p>+10 XP Habit Complete</p>
@@ -843,7 +843,7 @@ Your feedback helps shape future unlocks.
                 </div>
               </div>
 
-              <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
                 <h3 className="font-bold">🎖 Journey Ranks</h3>
                 <div className="mt-4 space-y-2 text-sm">
                   <p>Level 1 → Explorer</p>

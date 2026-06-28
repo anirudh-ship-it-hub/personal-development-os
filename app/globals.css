@@ -24,3 +24,62 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ── Autofill Override ──
+   Keep inputs dark even when the browser auto-fills them.
+*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  caret-color: #fff;
+  -webkit-box-shadow: 0 0 0 1000px #171717 inset !important;
+  box-shadow: 0 0 0 1000px #171717 inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* ── Error Message Component ──
+   Always red background, red border, white text — never black on dark.
+*/
+.auth-error {
+  @apply mt-4 rounded-xl border border-red-500/40 bg-red-500/10 p-3 text-sm font-medium text-white;
+}
+.auth-error::before {
+  content: "⚠️ ";
+}
+
+/* ── Touch / Tap ──
+   Remove default tap highlight, improve touch feel.
+*/
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Button / Input size helpers (used alongside Tailwind) ── */
+.btn-touch {
+  @apply min-h-[44px] transition-all duration-150 active:scale-[0.95] select-none;
+}
+
+.input-touch {
+  @apply min-h-[48px] transition-colors duration-150;
+}
+
+/* ── Scroll margin for keyboard visibility ── */
+@media (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    scroll-margin-bottom: 200px;
+  }
+}

@@ -51,7 +51,7 @@ export default function SignupPage() {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-blue-500/20">
+    <main className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-blue-500/20">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
           
@@ -61,10 +61,10 @@ export default function SignupPage() {
               <div className="flex items-start justify-between">
                 <div>
                   <div className="text-6xl mb-3">⚔️</div>
-                  <p className="text-sm font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+                  <p className="text-sm font-bold uppercase tracking-widest text-neutral-500">
                     HERO CREATION
                   </p>
-                  <h1 className="mt-2 text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                  <h1 className="mt-2 text-4xl font-bold tracking-tight text-white">
                     Begin Your Adventure
                   </h1>
                 </div>
@@ -73,16 +73,16 @@ export default function SignupPage() {
                 </div>
               </div>
 
-              <p className="mt-4 text-neutral-600 dark:text-neutral-300 max-w-xl">
+              <p className="mt-4 text-neutral-300 max-w-xl">
                 The person you want to become is one campaign away. Your Quest Guide will help transform your ambition into a dynamic training template.
               </p>
 
               {/* Dynamic Mission Box Statement */}
               <div className="mt-6">
-                <label className="block text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-2">
+                <label className="block text-sm font-semibold text-neutral-300 mb-2">
                   Your Primary Adventure Target
                 </label>
-                <div className="w-full min-h-[100px] rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                <div className="w-full min-h-[100px] rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950 text-sm leading-relaxed text-neutral-300">
                   {selectedPreset.text}
                 </div>
               </div>
@@ -102,8 +102,8 @@ export default function SignupPage() {
                         onClick={() => setSelectedPreset(preset)}
                         className={`rounded-xl border p-4 text-left transition-all text-sm font-bold tracking-wide outline-none ${
                           isSelected
-                            ? "border-blue-600 bg-blue-600 text-white dark:bg-blue-600 dark:text-white ring-2 ring-blue-500/30"
-                            : "border-neutral-200 bg-neutral-50 text-neutral-700 hover:bg-blue-600 hover:text-white hover:border-blue-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-300 dark:hover:bg-blue-600 dark:hover:text-white dark:hover:border-blue-600"
+                            ? "border-blue-600 bg-blue-600 text-white"
+                            : "border-neutral-700 bg-neutral-950 text-neutral-200 hover:bg-neutral-800"
                         }`}
                       >
                         {preset.label}
@@ -116,7 +116,7 @@ export default function SignupPage() {
 
             {/* Profile Identity Credentials Block */}
             <div className="rounded-3xl border bg-white p-8 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
-              <h2 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-white mb-4">Account Credentials</h2>
+              <h2 className="text-xl font-bold tracking-tight text-white mb-4">Account Credentials</h2>
               <div className="grid gap-4 md:grid-cols-3">
                 <div>
                   <label className="block text-xs font-bold text-neutral-400 uppercase tracking-wider mb-1.5 px-0.5">Player Email</label>
@@ -125,33 +125,33 @@ export default function SignupPage() {
                     placeholder="adventurer@domain.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-xl border p-4 bg-neutral-50 dark:bg-neutral-950 text-base border-neutral-200 dark:border-neutral-800 outline-none text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
+                    className="w-full rounded-xl border p-4 bg-neutral-950 text-base border-neutral-800 outline-none text-white placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-neutral-400 uppercase tracking-wider mb-1.5 px-0.5">Adventure Passkey</label>
                   <input
                     type="password"
-                    placeholder="••••••••••••"
+                    placeholder="••••••••••••" autoComplete="new-password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full rounded-xl border p-4 bg-neutral-50 dark:bg-neutral-950 text-base border-neutral-200 dark:border-neutral-800 outline-none text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
+                    className="w-full rounded-xl border p-4 bg-neutral-950 text-base border-neutral-800 outline-none text-white placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-neutral-400 uppercase tracking-wider mb-1.5 px-0.5">Confirm Passkey</label>
                   <input
                     type="password"
-                    placeholder="••••••••••••"
+                    placeholder="••••••••••••" autoComplete="new-password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full rounded-xl border p-4 bg-neutral-50 dark:bg-neutral-950 text-base border-neutral-200 dark:border-neutral-800 outline-none text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
+                    className="w-full rounded-xl border p-4 bg-neutral-950 text-base border-neutral-800 outline-none text-white placeholder:text-neutral-500 focus:border-blue-500 transition-colors"
                   />
                 </div>
               </div>
 
               {error && (
-                <p className="mt-4 text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/30 p-3 rounded-xl">
+                <p className="mt-4 text-sm font-medium text-white bg-red-500/10 border border-red-500/40 p-3 rounded-xl">
                   ⚠️ {error}
                 </p>
               )}
@@ -164,7 +164,7 @@ export default function SignupPage() {
                 >
                   {loading ? "Registering Hero..." : "🚀 Complete Registration"}
                 </button>
-                <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                <p className="text-sm text-neutral-500">
                   Already tracking a journey?{" "}
                   <button onClick={() => router.push("/auth/login")} className="text-blue-500 font-semibold hover:underline">
                     Continue Journey
@@ -175,20 +175,20 @@ export default function SignupPage() {
           </div>
 
           {/* RIGHT COLUMN: Sidebar HUD Modules */}
-          <div>
+          <div className="hidden lg:block">
             <div className="sticky top-8 space-y-6">
-              <div className="rounded-2xl border bg-gradient-to-br from-blue-500/10 to-violet-500/10 p-6 border-neutral-200 dark:border-neutral-800">
-                <h3 className="text-xl font-bold flex items-center gap-2 text-neutral-900 dark:text-white">
+              <div className="rounded-2xl border bg-gradient-to-br from-blue-500/10 to-violet-500/10 p-6 border-neutral-800">
+                <h3 className="text-xl font-bold flex items-center gap-2 text-white">
                   🧭 <span>Your Quest Guide</span>
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-neutral-500 dark:text-neutral-400">
+                <p className="mt-4 text-sm leading-7 text-neutral-500">
                   Every meaningful transformation starts with a single mission. This system isn't designed around achieving toxic flawlessness. It is built to gain continuous momentum through actions repeated systematically.
                 </p>
               </div>
 
               <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-                <h3 className="font-bold mb-3 text-neutral-900 dark:text-white">🏆 XP System Breakdown</h3>
-                <div className="space-y-2 text-sm text-neutral-500 dark:text-neutral-400">
+                <h3 className="font-bold mb-3 text-white">🏆 XP System Breakdown</h3>
+                <div className="space-y-2 text-sm text-neutral-500">
                   <p className="flex justify-between"><span>Daily Task Complete:</span> <span className="font-bold text-neutral-800 dark:text-neutral-200">+10 XP</span></p>
                   <p className="flex justify-between"><span>Weekly Checkpoint:</span> <span className="font-bold text-neutral-800 dark:text-neutral-200">+100 XP</span></p>
                   <p className="flex justify-between"><span>Quest Completed:</span> <span className="font-bold text-neutral-800 dark:text-neutral-200">+500 XP</span></p>
@@ -196,7 +196,7 @@ export default function SignupPage() {
               </div>
 
               <div className="rounded-2xl border bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-                <h3 className="font-bold mb-3 text-neutral-900 dark:text-white">🎖 Journey Progression</h3>
+                <h3 className="font-bold mb-3 text-white">🎖 Journey Progression</h3>
                 <div className="space-y-2 text-sm font-medium text-neutral-400">
                   <p className="text-blue-500 font-bold flex items-center justify-between">
                     <span>Level 1 → Explorer</span>

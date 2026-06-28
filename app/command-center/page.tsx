@@ -615,7 +615,7 @@ p-8
 
           {/* RIGHT SIDE */}
   
-          <div>
+          <div className="hidden lg:block">
 
           <div className="sticky top-8 space-y-6">
             <div className="rounded-2xl border bg-gradient-to-br from-blue-500/10 to-violet-500/10 p-6 dark:border-neutral-800">

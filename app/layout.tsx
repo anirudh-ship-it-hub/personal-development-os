@@ -1,10 +1,8 @@
-
-import Link from "next/link";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-
+import ThemeProvider from "@/components/ThemeProvider";
+import AppShell from "@/components/AppShell";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,40 +14,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Personal Monitoring Dashboard",
-  description:
-    "Track projects, focus areas, habits and personal growth.",
+export const metadata: Metadata = {
+  title: "⚔️ Level Up",
+  description: "Turn your goals into quests.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    > 
-      <body className="min-h-full flex flex-col">
-      <nav className="border-b p-4">
-        <div className="flex gap-4">
-
-        <Link href="/">
-  Command Center
-</Link>
-
-<Link href="/projects">
-  Missions
-</Link>
-
-<Link href="/habits">
-  Execution
-</Link>
-        </div>
-      </nav>
-      {children}</body>
+      className={`dark ${geistSans.variable} ${geistMono.variable} h-full`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen bg-neutral-50 text-neutral-900 antialiased dark:bg-neutral-950 dark:text-white">
+        <ThemeProvider>
+          <AppShell>{children}</AppShell>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

@@ -126,7 +126,7 @@ if (!response.ok) {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-screen bg-neutral-950">
       <div className="mx-auto max-w-6xl px-6 py-12">
 
         <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
@@ -139,11 +139,11 @@ if (!response.ok) {
               Character Creation
             </p>
 
-            <h1 className="mt-4 text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
+            <h1 className="mt-4 text-5xl font-bold tracking-tight text-white">
               ⚔️ Begin Your Journey
             </h1>
 
-            <p className="mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
+            <p className="mt-4 max-w-2xl text-lg text-neutral-400">
             Who do you want to become?
 
             Start with one mission today.
@@ -166,7 +166,7 @@ if (!response.ok) {
                 value={goal}
                 onChange={(e) => setGoal(e.target.value)}
                 placeholder="I want to lose 10kg, improve my nutrition, build consistency in the gym and create a healthier lifestyle..."
-                className="mt-3 h-40 w-full rounded-xl border border-neutral-200 bg-neutral-50 p-4 outline-none transition focus:border-blue-500 dark:border-neutral-700 dark:bg-neutral-950 dark:text-white"
+                className="mt-3 h-40 w-full rounded-xl border border-neutral-800 bg-neutral-950 p-4 text-white outline-none placeholder:text-neutral-500 focus:border-blue-500"
               />
 
               <button
@@ -181,7 +181,7 @@ if (!response.ok) {
 
             <div className="mt-10">
 
-              <h2 className="text-xl font-semibold text-neutral-900 dark:text-white">
+              <h2 className="text-xl font-semibold text-white">
                 Need Inspiration?
               </h2>
 
@@ -195,9 +195,9 @@ if (!response.ok) {
                   <button
                     key={template.title}
                     onClick={() => setGoal(template.prompt)}
-                    className="rounded-xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:border-blue-500 dark:border-neutral-800 dark:bg-neutral-900"
+                    className="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-left transition hover:border-blue-500"
                   >
-                    <p className="font-medium text-neutral-900 dark:text-white">
+                    <p className="font-medium text-white">
                       {template.title}
                     </p>
                   </button>
@@ -211,7 +211,7 @@ if (!response.ok) {
 
           {/* Guide Panel */}
 
-          <div>
+          <div className="hidden lg:block">
 
             <div className="sticky top-8 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
 
@@ -219,18 +219,18 @@ if (!response.ok) {
                 🧭
               </div>
 
-              <h3 className="mt-4 text-xl font-semibold text-neutral-900 dark:text-white">
+              <h3 className="mt-4 text-xl font-semibold text-white">
                 Your Guide
               </h3>
 
-              <p className="mt-3 text-neutral-600 dark:text-neutral-400">
+              <p className="mt-3 text-neutral-400">
               Soon you'll have a personal guide helping
                 you create missions, review checkpoints,
                 track your progress and stay accountable
                 through every stage of your journey.
               </p>
 
-              <div className="mt-6 rounded-xl bg-neutral-100 p-4 dark:bg-neutral-950">
+              <div className="mt-6 rounded-xl bg-neutral-950 p-4">
 
                 <p className="italic text-neutral-500">
                 "Every great life is built through many missions.
@@ -241,9 +241,9 @@ if (!response.ok) {
 
               </div>
 
-              <div className="mt-6 border-t border-neutral-200 pt-6 dark:border-neutral-800">
+              <div className="mt-6 border-t border-neutral-800 pt-6">
 
-                <h4 className="font-semibold text-neutral-900 dark:text-white">
+                <h4 className="font-semibold text-white">
                   Journey Titles
                 </h4>
 
