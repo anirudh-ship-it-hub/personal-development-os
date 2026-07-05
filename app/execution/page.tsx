@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 const focusAreaIcons: Record<string, string> = {
@@ -19,6 +19,18 @@ const focusAreaIcons: Record<string, string> = {
   Mindfulness: "🧠",
 };
 
+function formatError(err: any): string {
+  if (!err) return "Unknown error";
+  if (typeof err === "string") return err;
+  const parts: string[] = [];
+  if (err.message) parts.push("message: " + err.message);
+  if (err.details) parts.push("details: " + err.details);
+  if (err.hint) parts.push("hint: " + err.hint);
+  if (err.code) parts.push("code: " + err.code);
+  if (err.name) parts.push("name: " + err.name);
+  return parts.length > 0 ? parts.join(" | ") : JSON.stringify(err);
+}
+
 export default function ExecutionPage() {
     const [showPerfectDay, setShowPerfectDay] =
   useState(false);
@@ -28,6 +40,7 @@ export default function ExecutionPage() {
   useState<string[]>([]);
   const [journeys, setJourneys] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const togglingRef = useRef<string | null>(null);
 
   useEffect(() => {
     loadJourneys();
@@ -59,7 +72,7 @@ export default function ExecutionPage() {
       .eq("status", "completed");
     
     if (completedError) {
-      console.error(completedError);
+      console.error("Failed to load completed habits:", formatError(completedError));
     }
     
     setCompletedHabits(
@@ -148,7 +161,9 @@ export default function ExecutionPage() {
   async function toggleHabit(
     habit: any
   ) {
-  
+    if (togglingRef.current === habit.id) return;
+    togglingRef.current = habit.id;
+    try {
     const todayDate =
       new Date()
         .toISOString()
@@ -178,7 +193,7 @@ export default function ExecutionPage() {
             habit.id
           );
       if (error) {
-        console.error(error);
+        console.error("Failed to delete habit log:", formatError(error));
         return;
       }
         const remainingHabits =
@@ -221,7 +236,7 @@ export default function ExecutionPage() {
           });
   
       if (error) {
-        console.error(error);
+        console.error("Failed to insert habit log:", formatError(error));
         return;
       }
       const {
@@ -266,6 +281,7 @@ export default function ExecutionPage() {
       ) {
         const {
             data: existingPerfectDay,
+            error: perfectDayQueryError,
           } = await supabase
             .from("xp_logs")
             .select("id")
@@ -273,10 +289,18 @@ export default function ExecutionPage() {
               "source",
               "perfect_day"
             )
-            .eq(
-              "metadata",
-              todayDate
+            .gte(
+              "created_at",
+              todayDate + "T00:00:00"
+            )
+            .lte(
+              "created_at",
+              todayDate + "T23:59:59"
             );
+
+        if (perfectDayQueryError) {
+          console.error("Perfect day query error:", formatError(perfectDayQueryError));
+        }
 
       
         if (
@@ -294,7 +318,7 @@ export default function ExecutionPage() {
                 user_id: user.id,
                 xp_earned: 50,
                 source: "perfect_day",
-                metadata: todayDate,
+                
               });
           
           if (perfectDayError) {
@@ -315,7 +339,9 @@ export default function ExecutionPage() {
       }
   
     }
-  
+    } finally {
+      togglingRef.current = null;
+    }
   }
   const totalQuests = useMemo(() => {
     return journeys.reduce(
@@ -359,14 +385,14 @@ export default function ExecutionPage() {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-950">
+    <main className="min-h-screen bg-neutral-950 pb-20 md:pb-0">
       <div className="mx-auto max-w-7xl px-6 py-12">
 
-        <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[2fr_1fr]">
 
           {/* LEFT SIDE */}
 
-          <div>
+          <div className="min-w-0">
 
             {/* HERO */}
             <h1 className="text-5xl font-bold text-white">
@@ -421,7 +447,7 @@ export default function ExecutionPage() {
 
 <div className="mt-8 grid grid-cols-2 gap-4">
 
-  <div className="flex-1 rounded-2xl border p-6">
+  <div className="min-w-0 rounded-2xl border p-4 sm:p-6">
 
     <p className="text-sm text-neutral-500">
       QUESTS TODAY
@@ -433,7 +459,7 @@ export default function ExecutionPage() {
 
   </div>
 
-  <div className="flex-1 rounded-2xl border p-6">
+  <div className="min-w-0 rounded-2xl border p-4 sm:p-6">
 
     <p className="text-sm text-neutral-500">
       XP AVAILABLE
@@ -502,7 +528,7 @@ export default function ExecutionPage() {
     </div>
   )
 }
-<p className="mt-4 text-sm text-amber-400">
+<p className="mt-4 text-sm text-amber-400 break-words whitespace-normal">
   Perfect Day Reward: +50 XP
 </p>
 
@@ -658,7 +684,7 @@ bg-green-950/30
 
           {/* RIGHT SIDE */}
 
-          <div>
+          <div className="min-w-0">
 
           <div className="sticky top-8 space-y-6">
             <div className="rounded-2xl border bg-gradient-to-br from-blue-500/10 to-violet-500/10 p-6 dark:border-neutral-800">

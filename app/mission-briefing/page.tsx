@@ -77,6 +77,9 @@ const [selectedDay, setSelectedDay] =
 const [existingMissions, setExistingMissions] =
   useState<any[]>([]);
 
+const [addingJourney, setAddingJourney] =
+  useState(false);
+
   useEffect(() => {
     const storedMission = sessionStorage.getItem("missionData");
     if (!storedMission) return;
@@ -302,6 +305,27 @@ if (error) {
     setShowMissionModal(false);
   
     await createMission(user);
+  }
+  async function addJourney() {
+    setAddingJourney(true);
+    try {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        alert("Please login first.");
+        setAddingJourney(false);
+        return;
+      }
+
+      setShowMissionModal(false);
+      await createMission(user);
+    } catch (error: any) {
+      console.error(error);
+      alert("Failed to add journey. " + (error.message || JSON.stringify(error)));
+      setAddingJourney(false);
+    }
   }
   async function handleStartMission() {
     try {
@@ -876,7 +900,7 @@ Your feedback helps shape future unlocks.
       <p className="mt-3 text-neutral-400">
       You already have active journeys in progress.
 
-Starting another journey may split your focus.
+Keep your existing journeys active and start this journey too.
       </p>
       <div className="mb-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4">
 
@@ -909,12 +933,13 @@ Starting another journey may split your focus.
       <div className="mt-6 flex flex-col gap-3">
 
       <button
-  onClick={() =>
-    router.push("/command-center")
-  }
-  className="rounded-xl bg-blue-600 py-3 font-medium text-white"
+  onClick={addJourney}
+  disabled={addingJourney}
+  className="rounded-xl bg-blue-600 py-3 font-medium text-white disabled:opacity-50"
 >
-  Continue Journeys
+  {addingJourney
+    ? "⏳ Adding Journey..."
+    : "Add This Journey"}
 </button>
 <button
   onClick={replaceJourney}
