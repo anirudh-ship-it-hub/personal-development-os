@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khushi Goes to Estonia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #faf9f6;
+            --off-white: #f5f3f0;
+            --dark: #2a2825;
+            --charcoal: #3d3a37;
+            --gray: #8b8784;
+            --light-gray: #e8e6e3;
+            --accent-pine: #2d4a4a;
+            --accent-copper: #8b6f47;
+            --accent-slate: #4a5568;
+            --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--cream);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--dark);
+            background: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise' seed='2'/%3E%3C/filter%3E%3Crect width='100' height='100' fill='%23faf9f6' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .section {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Landing Screen */
+        .landing {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .landing-content {
+            text-align: center;
+        }
+
+        .landing-status {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 2rem 0 3rem;
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--gray);
+        }
+
+        .status-line {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .status-label {
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        /* Button Styles */
+        button, .button {
+            background: var(--dark);
+            color: var(--cream);
+            border: none;
+            padding: 0.85rem 1.8rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s var(--smooth);
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover, .button:hover {
+            background: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        button:active, .button:active {
+            transform: translateY(0);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--dark);
+            border: 1px solid var(--dark);
+        }
+
+        .button-secondary:hover {
+            background: var(--dark);
+            color: var(--cream);
+        }
+
+        /* Mission Section */
+        .mission-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .mission-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .mission-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mission-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s var(--smooth);
+            cursor: pointer;
+        }
+
+        .mission-item:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: var(--dark);
+            transform: translateY(-4px);
+        }
+
+        .mission-item-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .mission-item-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .mission-item-detail {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.75rem;
+            line-height: 1.5;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s var(--smooth);
+        }
+
+        .mission-item:hover .mission-item-detail {
+            max-height: 200px;
+        }
+
+        /* Probability Dashboard */
+        .probability-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .probability-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-left: 3px solid var(--accent-pine);
+            transition: all 0.3s var(--smooth);
+        }
+
+        .probability-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateX(8px);
+        }
+
+        .probability-item.unknown {
+            border-left-color: var(--accent-copper);
+        }
+
+        .probability-label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .probability-bar {
+            width: 150px;
+            height: 6px;
+            background: var(--light-gray);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .probability-fill {
+            height: 100%;
+            background: var(--accent-slate);
+            border-radius: 3px;
+            width: 0;
+            animation: fillBar 1.2s var(--spring) forwards;
+        }
+
+        .probability-item.unknown .probability-fill {
+            background: url("data:image/svg+xml,%3Csvg width='4' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='2' height='6' fill='%238b6f47'/%3E%3Crect x='2' width='2' height='6' fill='%238b6f47' opacity='0.5'/%3E%3C/svg%3E");
+            background-size: 4px 6px;
+            width: 100%;
+            animation: none;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--fill-width); }
+        }
+
+        .probability-percent {
+            font-weight: 600;
+            color: var(--dark);
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .probability-percent.unknown {
+            color: var(--accent-copper);
+        }
+
+        /* Starter Pack */
+        .starter-pack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .pack-card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+            border: 1px solid var(--light-gray);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.4s var(--spring);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pack-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(45, 74, 74, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .pack-card:hover::before {
+            opacity: 1;
+        }
+
+        .pack-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+            border-color: var(--dark);
+        }
+
+        .pack-card-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .pack-card-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .pack-card-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+            opacity: 0;
+            transition: all 0.3s var(--smooth);
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .pack-card:hover .pack-card-desc {
+            opacity: 1;
+            max-height: 100px;
+        }
+
+        /* Design Nerd Mode */
+        .design-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .control-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            height: 3px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--light-gray);
+            border-radius: 2px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s var(--smooth);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--dark);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s var(--smooth);
+        }
+
+        input[type="range"]:hover::-webkit-slider-thumb {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 8px rgba(42, 40, 37, 0.1);
+        }
+
+        .slider-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--gray);
+            min-width: 30px;
+        }
+
+        .toggle-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .toggle {
+            flex: 1;
+            padding: 1rem;
+            background: transparent;
+            border: 2px solid var(--light-gray);
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s var(--smooth);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .toggle.active {
+            background: var(--dark);
+            color: var(--cream);
+            border-color: var(--dark);
+        }
+
+        .design-playground {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--light-gray);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .playground-content {
+            z-index: 2;
+            position: relative;
+        }
+
+        .design-playground.complex {
+            background: linear-gradient(45deg, rgba(45, 74, 74, 0.05), rgba(139, 111, 71, 0.05), rgba(74, 85, 104, 0.05));
+        }
+
+        .design-playground.complex .playground-content {
+            font-size: 1.3rem;
+            color: var(--accent-copper);
+            font-weight: 700;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Field Notes */
+        .field-notes {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .note {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-left: 3px solid var(--accent-copper);
+            cursor: pointer;
+            transition: all 0.3s var(--smooth);
+            font-style: italic;
+            color: var(--charcoal);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .note.active {
+            max-height: 200px;
+            opacity: 1;
+        }
+
+        .note:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-left-color: var(--dark);
+            transform: translateX(8px);
+        }
+
+        /* Foxhole Court Protocol */
+        .protocol-rules {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .protocol-rule {
+            padding: 2rem;
+            background: rgba(45, 74, 74, 0.05);
+            border-top: 2px solid var(--accent-pine);
+            transition: all 0.3s var(--smooth);
+        }
+
+        .protocol-rule:hover {
+            background: rgba(45, 74, 74, 0.08);
+            transform: translateX(8px);
+        }
+
+        .protocol-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-pine);
+            margin-bottom: 0.75rem;
+        }
+
+        .protocol-text {
+            font-size: 1.05rem;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* Serious Section */
+        .serious-section {
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .serious-heading {
+            font-size: 1.3rem;
+            color: var(--gray);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .serious-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Protocol */
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .contact-buttons button {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-message {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--light-gray);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.3s var(--smooth);
+        }
+
+        .contact-message.active {
+            max-height: 200px;
+            opacity: 1;
+        }
+
+        /* Final Section */
+        .final-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .final-big-word {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .final-text {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .final-small {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .final-reveal {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(45, 74, 74, 0.05), rgba(139, 111, 71, 0.05));
+            border: 1px solid var(--light-gray);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s var(--smooth);
+        }
+
+        .final-reveal.active {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .final-reveal-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .final-signature {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        /* Progress Indicator */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--light-gray);
+            z-index: 100;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--dark);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--gray);
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .progress-text.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .starter-pack-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-text {
+                bottom: 20px;
+                right: 20px;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Cursor interactions */
+        .cursor-interactive {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cursor-interactive:hover {
+            color: var(--accent-pine);
+        }
+    </style>
+</head>
+<body>
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text" id="progressText">ESTONIA LOADING… 0%</div>
+
+    <!-- Landing Screen -->
+    <section class="section landing" id="landing">
+        <div class="container landing-content">
+            <h1>Khushi Goes to Estonia.</h1>
+            <p class="subtitle">An unnecessarily elaborate interface for a relatively simple life decision.</p>
+
+            <div class="landing-status">
+                <div class="status-label">STATUS:</div>
+                <div class="status-line">
+                    <span>Leaving India → Estonia</span>
+                    <span>Purpose → Interactive Design</span>
+                </div>
+                <div class="status-line">
+                    <span>Likelihood of becoming insufferably good at design → 97%</span>
+                </div>
+            </div>
+
+            <button onclick="scrollToSection('mission')">ENTER THE KHUSHI SIMULATION →</button>
+        </div>
+    </section>
+
+    <!-- Mission Estonia -->
+    <section class="section" id="mission">
+        <div class="container mission-content">
+            <h2>Mission: Estonia</h2>
+
+            <div class="mission-details">
+                <div class="mission-item">
+                    <span class="mission-item-label">Location</span>
+                    <span class="mission-item-value">Estonia</span>
+                    <div class="mission-item-detail">A country that looks like someone designed it, which is perfect.</div>
+                </div>
+                <div class="mission-item">
+                    <span class="mission-item-label">Objective</span>
+                    <span class="mission-item-value">Interactive Design</span>
+                    <div class="mission-item-detail">Learn to make things do things in ways that delight people.</div>
+                </div>
+                <div class="mission-item">
+                    <span class="mission-item-label">Duration</span>
+                    <span class="mission-item-value">TBD</span>
+                    <div class="mission-item-detail">As long as it takes to become insufferably knowledgeable.</div>
+                </div>
+                <div class="mission-item">
+                    <span class="mission-item-label">Primary Threat</span>
+                    <span class="mission-item-value">Procrastination</span>
+                    <div class="mission-item-detail">Severe. Known to hijack midnight hours and derail sleep schedules.</div>
+                </div>
+                <div class="mission-item">
+                    <span class="mission-item-label">Secondary Threat</span>
+                    <span class="mission-item-value">Café Attachment</span>
+                    <div class="mission-item-detail">European cafés are dangerous. They have personality. You'll become their personality.</div>
+                </div>
+                <div class="mission-item">
+                    <span class="mission-item-label">Expected Outcome</span>
+                    <span class="mission-item-value">Excellent Design + Questionable Sleep</span>
+                    <div class="mission-item-detail">One superb designer and one person who forgot what "normal sleep" feels like.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Probability Dashboard -->
+    <section class="section" id="probability">
+        <div class="container">
+            <h2>Things You Will Probably Do</h2>
+            <p class="subtitle">Statistical inevitabilities based on historical data.</p>
+
+            <div class="probability-list">
+                <div class="probability-item" style="--fill-width: 94%">
+                    <span class="probability-label">Overthink a design decision</span>
+                    <div class="probability-bar">
+                        <div class="probability-fill"></div>
+                    </div>
+                    <span class="probability-percent">94%</span>
+                </div>
+                <div class="probability-item" style="--fill-width: 89%">
+                    <span class="probability-label">Say "I have an idea" and redesign something unnecessarily</span>
+                    <div class="probability-bar">
+                        <div class="probability-fill"></div>
+                    </div>
+                    <span class="probability-percent">89%</span>
+                </div>
+                <div class="probability-item" style="--fill-width: 100%">
+                    <span class="probability-label">Procrastinate on something important</span>
+                    <div class="probability-bar">
+                        <div class="probability-fill"></div>
+                    </div>
+                    <span class="probability-percent">100%</span>
+                </div>
+                <div class="probability-item" style="--fill-width: 76%">
+                    <span class="probability-label">Make friends and pretend you aren't getting attached</span>
+                    <div class="probability-bar">
+                        <div class="probability-fill"></div>
+                    </div>
+                    <span class="probability-percent">76%</span>
+                </div>
+                <div class="probability-item" style="--fill-width: 91%">
+                    <span class="probability-label">Find a café and make it your entire personality</span>
+                    <div class="probability-bar">
+                        <div class="probability-fill"></div>
+                    </div>
+                    <span class="probability-percent">91%</span>
+                </div>
+                <div class="probability-item unknown">
+                    <span class="probability-label">Send me something completely random from Estonia</span>
+                    <div class="probability-bar">
+                        <div class="probability-fill"></div>
+                    </div>
+                    <span class="probability-percent unknown">???%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estonia Starter Pack -->
+    <section class="section" id="starter-pack">
+        <div class="container">
+            <h2>Estonia Starter Pack</h2>
+            <p class="subtitle">Essential equipment for becoming insufferably talented.</p>
+
+            <div class="starter-pack-grid">
+                <div class="pack-card" onmousemove="updateMousePos(event)">
+                    <span class="pack-card-emoji">💻</span>
+                    <div class="pack-card-title">Laptop</div>
+                    <div class="pack-card-desc">Your most trusted companion. More reliable than sleep.</div>
+                </div>
+                <div class="pack-card" onmousemove="updateMousePos(event)">
+                    <span class="pack-card-emoji">🎧</span>
+                    <div class="pack-card-title">Headphones</div>
+                    <div class="pack-card-desc">A barrier between you and casual conversation.</div>
+                </div>
+                <div class="pack-card" onmousemove="updateMousePos(event)">
+                    <span class="pack-card-emoji">☕</span>
+                    <div class="pack-card-title">Coffee</div>
+                    <div class="pack-card-desc">Liquid motivation. Consumed in quantities that concern healthcare professionals.</div>
+                </div>
+                <div class="pack-card" onmousemove="updateMousePos(event)">
+                    <span class="pack-card-emoji">📓</span>
+                    <div class="pack-card-title">Notebook</div>
+                    <div class="pack-card-desc">For ideas that feel too good to trust to digital storage.</div>
+                </div>
+                <div class="pack-card" onmousemove="updateMousePos(event)">
+                    <span class="pack-card-emoji">📚</span>
+                    <div class="pack-card-title">Design References</div>
+                    <div class="pack-card-desc">Way too many. Browser tabs that never close. Inspiration debt.</div>
+                </div>
+                <div class="pack-card" onmousemove="updateMousePos(event)">
+                    <span class="pack-card-emoji">📖</span>
+                    <div class="pack-card-title">The Foxhole Court</div>
+                    <div class="pack-card-desc">For when you need reminding that it's okay to be dramatically complex.</div>
+                </div>
+                <div class="pack-card" onmousemove="updateMousePos(event)">
+                    <span class="pack-card-emoji">💔</span>
+                    <div class="pack-card-title">Emotional Damage</div>
+                    <div class="pack-card-desc">From thinking too much about design, life, and everything in between.</div>
+                </div>
+                <div class="pack-card" onmousemove="updateMousePos(event)">
+                    <span class="pack-card-emoji">📦</span>
+                    <div class="pack-card-title">One Unnecessary Figma File</div>
+                    <div class="pack-card-desc">500+ frames. Serves no purpose. You still open it at 2 AM.</div>
+                </div>
+                <div class="pack-card" onmousemove="updateMousePos(event)">
+                    <span class="pack-card-emoji">😴</span>
+                    <div class="pack-card-title">Questionable Sleep Schedule</div>
+                    <div class="pack-card-desc">3 AM is now noon. Noon is when you're just waking up.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Nerd Mode -->
+    <section class="section" id="design-mode">
+        <div class="container">
+            <h2>Design Nerd Mode</h2>
+            <p class="subtitle">Experimental interaction design playground.</p>
+
+            <div class="design-controls">
+                <div class="control-group">
+                    <label class="control-label">How unnecessarily complicated should this interaction be?</label>
+                    <div class="slider-container">
+                        <input type="range" id="complexitySlider" min="0" max="100" value="0" onchange="updateComplexity(this.value)">
+                        <span class="slider-value" id="complexityValue">0%</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Choose your design philosophy</label>
+                    <div class="toggle-group">
+                        <button class="toggle active" onclick="toggleMode(this, 'functional')">Functional</button>
+                        <button class="toggle" onclick="toggleMode(this, 'khushi')">Khushi</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="design-playground" id="playground">
+                <div class="playground-content" id="playgroundContent">
+                    ✓ Ready to solve real problems.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Field Notes -->
+    <section class="section" id="field-notes">
+        <div class="container">
+            <h2>Field Notes</h2>
+            <p class="subtitle">Observations collected during the Estonia expedition.</p>
+
+            <div class="field-notes">
+                <div class="note" onclick="toggleNote(this)" data-day="3">
+                    <strong>Day 3:</strong> Found a café. Immediately considered moving there permanently. Realized I could live on espresso and existential thoughts alone.
+                </div>
+                <div class="note" onclick="toggleNote(this)" data-day="11">
+                    <strong>Day 11:</strong> Said "I'll sleep early tonight." This is now a running joke I'm having with myself.
+                </div>
+                <div class="note" onclick="toggleNote(this)" data-day="19">
+                    <strong>Day 19:</strong> Designed something that could have been a button. Instead made it an entire interaction narrative.
+                </div>
+                <div class="note" onclick="toggleNote(this)" data-day="27">
+                    <strong>Day 27:</strong> Explained interaction design to someone who didn't ask. They seemed regretful. I didn't stop.
+                </div>
+                <div class="note" onclick="toggleNote(this)" data-day="35">
+                    <strong>Day 35:</strong> Realized Estonia is teaching me things India couldn't. Not sure if that's comforting or terrifying.
+                </div>
+                <div class="note" onclick="toggleNote(this)" data-day="42">
+                    <strong>Day 42:</strong> Made something beautiful. For once, didn't immediately redesign it. Growth?
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Foxhole Court Protocol -->
+    <section class="section" id="protocol">
+        <div class="container">
+            <h2>The Foxhole Court Protocol</h2>
+            <p class="subtitle">Survival rules for the emotionally complicated.</p>
+
+            <div class="protocol-rules">
+                <div class="protocol-rule">
+                    <div class="protocol-number">Rule 01</div>
+                    <div class="protocol-text">Trust nobody before coffee.</div>
+                </div>
+                <div class="protocol-rule">
+                    <div class="protocol-number">Rule 02</div>
+                    <div class="protocol-text">If the situation becomes emotionally complicated, blame the plot.</div>
+                </div>
+                <div class="protocol-rule">
+                    <div class="protocol-number">Rule 03</div>
+                    <div class="protocol-text">Do not let fictional characters establish unreasonable standards for real life.</div>
+                </div>
+                <div class="protocol-rule">
+                    <div class="protocol-number">Rule 04</div>
+                    <div class="protocol-text">Beautiful things are worth designing. Sometimes they're also worth breaking for.</div>
+                </div>
+                <div class="protocol-rule">
+                    <div class="protocol-number">Rule 05</div>
+                    <div class="protocol-text">You're allowed to be both brilliant and uncertain. These are not mutually exclusive.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serious Section -->
+    <section class="section" id="serious">
+        <div class="container serious-section">
+            <h2 class="serious-heading">Okay, one serious thing.</h2>
+
+            <div class="serious-text">
+                <p>Things are going to get hectic. You're going somewhere new, learning something you genuinely care about, and becoming a slightly more terrifying version of yourself.</p>
+
+                <p>So don't lose the weird little version of you that made all of this fun in the first place.</p>
+
+                <p>Go be ridiculously good at what you do.</p>
+
+                <p>And if things get messy, you'll figure it out.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Protocol -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2>In Case of Emergency</h2>
+            <p class="subtitle">If Estonia becomes too aesthetically pleasing and you forget the rest of us exist…</p>
+
+            <div class="contact-buttons">
+                <button onclick="showMessage(this, 'postcard')">Send Postcard</button>
+                <button onclick="showMessage(this, 'story')">Send Ridiculous Story</button>
+                <button onclick="showMessage(this, 'rant')">Send Design Rant</button>
+                <button onclick="showMessage(this, 'proof')">Send Proof You're Alive</button>
+            </div>
+
+            <div class="contact-message" id="postcard">
+                <p><strong>Digital postcards accepted.</strong></p>
+                <p>Physical postcards strongly encouraged.</p>
+            </div>
+            <div class="contact-message" id="story">
+                <p><strong>All ridiculous stories welcome.</strong></p>
+                <p>Preferably ones involving cafés, design disasters, or both.</p>
+            </div>
+            <div class="contact-message" id="rant">
+                <p><strong>Design rants are your love language.</strong></p>
+                <p>I will listen to you explain why spacing is wrong for 45 minutes straight.</p>
+            </div>
+            <div class="contact-message" id="proof">
+                <p><strong>Proof of continued existence appreciated.</strong></p>
+                <p>Even just "still alive, still designing, still caffeinated."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <section class="section" id="final">
+        <div class="container final-section">
+            <div class="final-big-word">Anyway.</div>
+
+            <p class="final-text">Go make Estonia slightly more interesting.</p>
+
+            <p class="final-small">Have fun, don't become boring, and please don't come back with a personality entirely composed of design terminology.</p>
+
+            <button onclick="revealFinal()">ONE LAST THING →</button>
+
+            <div class="final-reveal" id="finalReveal">
+                <p class="final-reveal-text">Okay fine.</p>
+                <p class="final-reveal-text">If that Pakistani guy from your class eventually hits on you after all…</p>
+                <p class="final-reveal-text">I expect a full incident report.</p>
+                <div class="final-signature">— Management</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Progress bar
+        function updateProgress() {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / scrollHeight) * 100;
+
+            document.getElementById('progressBar').style.width = progress + '%';
+
+            const progressText = document.getElementById('progressText');
+            if (progress < 99) {
+                progressText.textContent = `ESTONIA LOADING… ${Math.round(progress)}%`;
+                progressText.classList.add('visible');
+            } else {
+                progressText.textContent = 'Actually, never mind. This is Estonia. Progress is nonlinear.';
+                progressText.classList.add('visible');
+            }
+        }
+
+        window.addEventListener('scroll', updateProgress);
+
+        // Smooth scroll to sections
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Update cursor position for card effects
+        function updateMousePos(event) {
+            const card = event.currentTarget;
+            const rect = card.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            card.style.setProperty('--mouse-x', x + 'px');
+            card.style.setProperty('--mouse-y', y + 'px');
+        }
+
+        // Design mode
+        function updateComplexity(value) {
+            const playground = document.getElementById('playground');
+            const content = document.getElementById('playgroundContent');
+            const slider = document.getElementById('complexitySlider');
+
+            document.getElementById('complexityValue').textContent = value + '%';
+
+            if (value > 70) {
+                playground.classList.add('complex');
+                content.textContent = '✨ Congratulations. You have solved a problem nobody had. ✨';
+            } else if (value > 40) {
+                playground.classList.remove('complex');
+                content.textContent = '→ Becoming unnecessarily sophisticated…';
+            } else {
+                playground.classList.remove('complex');
+                content.textContent = value == 0 ? '✓ Ready to solve real problems.' : '→ Adjusting complexity level…';
+            }
+        }
+
+        function toggleMode(button, mode) {
+            document.querySelectorAll('.toggle').forEach(b => b.classList.remove('active'));
+            button.classList.add('active');
+
+            const content = document.getElementById('playgroundContent');
+            const slider = document.getElementById('complexitySlider');
+
+            if (mode === 'khushi') {
+                slider.value = 85;
+                updateComplexity(85);
+            } else {
+                slider.value = 0;
+                updateComplexity(0);
+            }
+        }
+
+        // Field notes
+        function toggleNote(element) {
+            const notes = document.querySelectorAll('.note');
+            notes.forEach(note => {
+                if (note !== element) note.classList.remove('active');
+            });
+            element.classList.toggle('active');
+        }
+
+        // Contact messages
+        function showMessage(button, messageId) {
+            const message = document.getElementById(messageId);
+            const messages = document.querySelectorAll('.contact-message');
+            messages.forEach(msg => msg.classList.remove('active'));
+            message.classList.add('active');
+        }
+
+        // Final reveal
+        function revealFinal() {
+            document.getElementById('finalReveal').classList.add('active');
+        }
+
+        // Initialize field notes - show first one
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstNote = document.querySelector('.note');
+            if (firstNote) {
+                firstNote.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
