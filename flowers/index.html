@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flowers · Make a gift</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f6efe0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@400;600&family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/compose.css">
+</head>
+<body>
+<div class="wash"></div>
+<header class="bar"><img src="favicon.svg" alt=""><b>Flowers.</b><small>Digital gifts</small></header>
+
+<main>
+  <section class="card hero">
+    <div class="kicker">Digital gifts</div>
+    <h1>Make a gift</h1>
+    <p>Pick a bouquet, write your note, send the link. She taps the envelope, the bouquet blooms, then she reads your words.</p>
+  </section>
+
+  <section class="card">
+    <div class="kicker">01</div><h2>Pick a bouquet</h2>
+    <div class="styles" id="styles"></div>
+  </section>
+
+  <section class="card">
+    <div class="kicker">02</div><h2>Who is it from?</h2>
+    <div class="row">
+      <div><label for="from">From</label><input id="from" placeholder="Your name" autocomplete="given-name" maxlength="40"></div>
+      <div><label for="to">For</label><input id="to" placeholder="Her name" maxlength="40"></div>
+    </div>
+    <label for="head">Title on the bouquet <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+    <input id="head" placeholder="A Bouquet for …" maxlength="60">
+  </section>
+
+  <section class="card">
+    <div class="kicker">03</div><h2>Your note</h2>
+    <label for="note">Write it like a letter. Each line appears one by one.</label>
+    <textarea id="note" maxlength="1200" placeholder="For the prettiest woman&#10;&#10;…"></textarea>
+    <div class="row">
+      <div><label for="fn">Flower of the day</label><input id="fn" placeholder="White Acacia" maxlength="40"></div>
+      <div><label for="fm">What it means</label><input id="fm" placeholder="Secret love" maxlength="50"></div>
+    </div>
+  </section>
+
+  <section class="card linkbox" id="linkbox">
+    <div class="kicker">04</div><h2>Your link</h2>
+    <code id="link"></code>
+    <div class="row"><button class="btn" id="copy">Copy link</button><button class="btn" id="share">Share…</button></div>
+  </section>
+
+  <section class="card past-card">
+    <div class="kicker">Gifts</div><h2>Send another</h2>
+    <div class="past" id="past"></div>
+  </section>
+
+  <aside class="card side">
+    <div class="kicker" style="text-align:center">See how it works</div>
+    <div style="height:12px"></div>
+    <div class="phone"><iframe id="frame" title="Live preview" src="gift.html?autoopen"></iframe></div>
+    <div class="mini"><button class="btn" id="replay">Replay preview</button></div>
+  </aside>
+</main>
+
+<div class="dock"><button class="btn primary" id="make">Create link</button><button class="btn" id="open">Preview</button></div>
+<div class="toast" id="toast"></div>
+
+<script src="js/bouquet.js"></script>
+<script src="js/codec.js"></script>
+<script src="js/compose.js"></script>
+</body>
+</html>
